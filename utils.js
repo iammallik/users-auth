@@ -3,7 +3,7 @@ function validateEmail(email) {
     return re.test(String(email).toLowerCase());
 }
 
-console.log(validateEmail("hello9-abc.com"))
+// console.log(validateEmail("hello9-abc.com"))
 
 module.exports = {
     validateEmail

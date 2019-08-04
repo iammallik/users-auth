@@ -79,15 +79,13 @@ const signInUser = (request, response) => {
         }else if(results.rows.length <= 0){
             response.status(400).json({
                 "success": false,
-                message: "No user found with given name"
+                message: "No user found with given email"
             })
             return;
         } 
         else{
             hash_password = results.rows[0].password
             user_name = results.rows[0].name
-            console.log("reading from console")
-            console.log(hash_password)
             bcrypt.compare(password, hash_password, function(err, res) {
                 if(res) {
                     try {
