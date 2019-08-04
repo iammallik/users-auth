@@ -6,11 +6,11 @@ const utils = require('./utils')
  * read info from env file
  */
 const pool = new Pool({
-    user: 'mallik',
-    host: 'localhost',
-    database: 'postgres',
-    password: '',
-    port: 5432,
+    user: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    database: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    port: parseInt(process.env.DB_PORT, 10),
 })
 
 const getUserProfile = (request, response) => {
