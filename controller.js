@@ -158,8 +158,6 @@ const signUpUser = (request, response) => {
                 })
             } else {
                 try {
-                    console.log("%s %s", "here is name sending to bycrypt", name)
-                    console.log(results)
                     token = jwt.generateToken(name)
                     response.status(201).send({
                         "success": true,
@@ -208,8 +206,6 @@ const updateProfile = (request, response) => {
         } 
         else{
             hash_password = results.rows[0].password
-            console.log("reading from console")
-            console.log(hash_password)
             bcrypt.compare(password, hash_password, function(err, res) {
                 if(res) {
                     pool.query(
